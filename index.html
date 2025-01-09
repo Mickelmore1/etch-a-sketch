@@ -10,10 +10,12 @@
     <div id="header">
         <h1>Etch-a-Sketch</h1>
     </div>
-    <div id="body">
-        <input id="input">
-        <button>Confirm</button>
-        <input type="range" min="1" max="100" value="25">
+    <div id="data-input">
+        <input id="slider" type="range" min="1" max="100" value="25">
+        <p id="sliderValue"></p>
+        <button id="confirm">Confirm</button>
+    </div>
+    <div id="grid-container">
         <div id="grid">
             <div class="square" id="square"></div>
             <div class="square" id="square2"></div>
