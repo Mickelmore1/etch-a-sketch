@@ -32,28 +32,31 @@ document.getElementById('colorpicker').addEventListener('change', (hex) => {
 })
 
 
-
-
+document.getElementById('confirmGridSize').addEventListener('click', () => {
+    createGrid();
+})
 
 function createGrid(){
-    document.getElementById('confirmGridSize').addEventListener('click', () => {
+    
        const sliderValue = document.getElementById('sliderValue').innerHTML;
        const gridSize = sliderValue * sliderValue;
+       document.getElementById('grid').innerHTML = ""
+
 
 
       //document.getElementById('grid').removeChild('div')
               
        for (let x = 0; x < gridSize; x++) {
         const gridDiv = document.getElementById('grid');
-        const newDiv = document.createElement('div')//.setAttribute('id', x);
+        const newDiv = document.createElement('div')
         newDiv.setAttribute('id', x);
         newDiv.setAttribute('class', "square")
         newDiv.style.flexBasis = (100/sliderValue) + '%'
         gridDiv.appendChild(newDiv);
         }     
        colourGrid();
-    })
-}
+    }
+
 
 
 
