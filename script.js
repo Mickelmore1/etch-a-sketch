@@ -21,45 +21,27 @@ function liveSlider(){
     sliderValue.innerHTML = slider.value;
     slider.oninput = function() {
         sliderValue.innerHTML = this.value;
+    }
 }
-}
-
-let colour = '#000000';
-
-document.getElementById('colorpicker').addEventListener('change', (hex) => {
-    colour = hex.target.value    
-
-})
-
-
-document.getElementById('confirmGridSize').addEventListener('click', () => {
-    createGrid();
-})
 
 function createGrid(){
-    
        const sliderValue = document.getElementById('sliderValue').innerHTML;
        const gridSize = sliderValue * sliderValue;
-       document.getElementById('grid').innerHTML = ""
 
+       document.getElementById('grid').innerHTML = "" //Removing all divs from the grid before creating new ones.  
 
-
-      //document.getElementById('grid').removeChild('div')
-              
        for (let x = 0; x < gridSize; x++) {
         const gridDiv = document.getElementById('grid');
         const newDiv = document.createElement('div')
+
         newDiv.setAttribute('id', x);
         newDiv.setAttribute('class', "square")
         newDiv.style.flexBasis = (100/sliderValue) + '%'
+
         gridDiv.appendChild(newDiv);
         }     
        colourGrid();
     }
-
-
-
-
 
 function colourGrid() {
     let squareList = document.querySelectorAll('.square');
@@ -76,18 +58,50 @@ function colourGrid() {
     });
 }
 
-function resetGrid() {
+
+function colourGridRainbow() {
     let squareList = document.querySelectorAll('.square');
-    document.getElementById('reset').addEventListener('click', () => {
-        squareList.forEach(div => {
-            div.style.background = "";
-        })
-    })
+
+    squareList.forEach(div => {
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        let randomColorHex = "#" + randomColor;
+    
+        div.addEventListener('mouseover', () => {
+            if(isMouseClickDown == true) {
+             document.getElementById(div.id).style.background = randomColorHex;
+            } 
+        });
+
+        div.addEventListener('mousedown', () => {
+        document.getElementById(div.id).style.background = randomColorHex;
+        });
+    });
 }
 
 
 
-//paintColour()
+
+
+
+
+function resetGrid() {
+    let squareList = document.querySelectorAll('.square');
+    squareList.forEach(div => {
+        div.style.background = "";
+    })
+}
+
+let colour = '#000000';
+document.getElementById('colorpicker').addEventListener('change', (hex) => {
+    colour = hex.target.value  
+    console.log(colour)  
+    colourGrid();
+})
+
+document.getElementById('rainbowBrush').addEventListener('click', colourGridRainbow)
+document.getElementById('slider').addEventListener('mouseup', createGrid);
+document.getElementById('reset').addEventListener('click', resetGrid);
+
 liveSlider();
 createGrid();
 resetGrid();
