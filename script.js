@@ -78,12 +78,6 @@ function colourGridRainbow() {
     });
 }
 
-
-
-
-
-
-
 function resetGrid() {
     let squareList = document.querySelectorAll('.square');
     squareList.forEach(div => {
