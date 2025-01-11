@@ -15,7 +15,6 @@ document.addEventListener('mouseup', () => {
 })
 
 
-
 function liveSlider(){
     let slider = document.getElementById('slider')
     let sliderValue = document.getElementById('sliderValue')
@@ -29,13 +28,39 @@ let colour = '#000000';
 
 document.getElementById('colorpicker').addEventListener('change', (hex) => {
     colour = hex.target.value    
-    console.log(colour)
 })
 
 
-squareList = document.querySelectorAll('.square');
+
+
+
+function createGrid(){
+    document.getElementById('confirmGridSize').addEventListener('click', () => {
+       const sliderValue = document.getElementById('sliderValue').innerHTML;
+       const gridSize = sliderValue * sliderValue;
+
+              
+       for (let x = 0; x < gridSize; x++) {
+        const gridDiv = document.getElementById('grid');
+        const newDiv = document.createElement('div')
+        newDiv.setAttribute('id', x);
+        newDiv.setAttribute('class', "square")
+        newDiv.style.flexBasis = (100/sliderValue) + '%'
+        gridDiv.appendChild(newDiv);
+        }
+
+ 
+       
+       colourGrid();
+    })
+}
+
+
+
 
 function colourGrid() {
+    let squareList = document.querySelectorAll('.square');
+
     squareList.forEach(div => {
         div.addEventListener('mouseover', () => {
             if(isMouseClickDown == true) {
@@ -49,6 +74,7 @@ function colourGrid() {
 }
 
 function resetGrid() {
+    let squareList = document.querySelectorAll('.square');
     document.getElementById('reset').addEventListener('click', () => {
         squareList.forEach(div => {
             div.style.background = "";
@@ -60,7 +86,7 @@ function resetGrid() {
 
 //paintColour()
 liveSlider();
-colourGrid();
+createGrid();
 resetGrid();
 
 
