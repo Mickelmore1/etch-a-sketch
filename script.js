@@ -21,13 +21,14 @@ function liveSlider(){
     sliderValue.innerHTML = slider.value;
     slider.oninput = function() {
         sliderValue.innerHTML = this.value;
-    }
+}
 }
 
 let colour = '#000000';
 
 document.getElementById('colorpicker').addEventListener('change', (hex) => {
     colour = hex.target.value    
+
 })
 
 
@@ -39,18 +40,17 @@ function createGrid(){
        const sliderValue = document.getElementById('sliderValue').innerHTML;
        const gridSize = sliderValue * sliderValue;
 
+
+      //document.getElementById('grid').removeChild('div')
               
        for (let x = 0; x < gridSize; x++) {
         const gridDiv = document.getElementById('grid');
-        const newDiv = document.createElement('div')
+        const newDiv = document.createElement('div')//.setAttribute('id', x);
         newDiv.setAttribute('id', x);
         newDiv.setAttribute('class', "square")
         newDiv.style.flexBasis = (100/sliderValue) + '%'
         gridDiv.appendChild(newDiv);
-        }
-
- 
-       
+        }     
        colourGrid();
     })
 }
