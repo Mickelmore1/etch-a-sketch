@@ -3,10 +3,11 @@ body {
     flex-direction: column;
     align-items: center ;
     justify-content: space-around;
-    height: 99vh;
+    height: 100vh;
     gap: 16px;
     background-color: rgb(235, 235, 235);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y:hidden
 }
 
 #body {
@@ -77,9 +78,7 @@ body {
     background-color: rgba(0, 0, 0, 0.233);
 }
 
-#sliderValue {
-    font-weight: bold;
-}
+
 
 #confirmGridSize {
     height: 25px;
@@ -101,12 +100,19 @@ button, input {
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100vh;
     height: 40px;
     background-color: white;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+h1 {
+    margin: 0px;
 }
