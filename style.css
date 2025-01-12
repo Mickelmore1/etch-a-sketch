@@ -2,17 +2,46 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center ;
-    justify-content: center;
-    gap: 32px;
-    height: 100vh;
+    justify-content: space-around;
+    height: 99vh;
+    gap: 16px;
+    background-color: rgb(235, 235, 235);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#data-input {
+#body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  
+}
+
+.options {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px;
-   
+    gap: 96px;
+}
+
+#optionsSlider, #optionsColour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 300px;
+}
+
+#eraserImage {
+    width: 24px;
+    height: auto;
+}
+
+#grid-container {
+    background-color: white;
+    border-radius: 4px;
+    border-style: s;
 }
 
 #grid {
@@ -26,6 +55,7 @@ body {
     aspect-ratio: 1;
 }
 
+
 .square {
     flex: 1 1 33.3%;
     display: flex;
@@ -38,9 +68,13 @@ body {
     border-color: rgba(0, 0, 0, 0.2);
 }
 
-#colorPicker, #rainbowBrush {
+#colorpicker, #rainbowBrush, #eraser {
     width: 50px;
     height: 27px;
+}
+
+#colorpicker:hover, #rainbowBrush:hover, #eraser:hover, #reset:hover {
+    background-color: rgba(0, 0, 0, 0.233);
 }
 
 #sliderValue {
@@ -55,4 +89,24 @@ body {
 #reset {
     height: 50px;
     width: 200px;
+
+}
+
+button, input {
+    background-color: white;
+    border-width: 1px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vh;
+    height: 40px;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

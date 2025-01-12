@@ -78,6 +78,22 @@ function colourGridRainbow() {
     });
 }
 
+function colourGridWhite() {
+    let squareList = document.querySelectorAll('.square');
+
+    squareList.forEach(div => {
+        div.addEventListener('mouseover', () => {
+            if(isMouseClickDown == true) {
+            document.getElementById(div.id).style.background = 'white';
+            } 
+        });
+
+        div.addEventListener('mousedown', () => {
+        document.getElementById(div.id).style.background = 'white';
+        });
+})
+}
+
 function resetGrid() {
     let squareList = document.querySelectorAll('.square');
     squareList.forEach(div => {
@@ -92,6 +108,7 @@ document.getElementById('colorpicker').addEventListener('change', (hex) => {
     colourGrid();
 })
 
+document.getElementById('eraser').addEventListener('click', colourGridWhite)
 document.getElementById('rainbowBrush').addEventListener('click', colourGridRainbow)
 document.getElementById('slider').addEventListener('mouseup', createGrid);
 document.getElementById('reset').addEventListener('click', resetGrid);
